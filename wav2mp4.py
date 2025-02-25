@@ -17,16 +17,20 @@ def convert_wav_to_mp4(wav_file, mp4_file, image_file=None):
         command = [
             "ffmpeg", "-loop", "1", "-i", image_file,
             "-i", wav_file,
-            "-c:v", "libx264", "-tune", "stillimage",
+            "-c:v", "libx264", "-profile:v", "main", "-preset", "medium",
+            "-tune", "stillimage", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k", "-shortest",
-            mp4_file
+            "-f", "mp4", mp4_file
         ]
     else:
         # Convert audio only
         command = [
             "ffmpeg", "-i", wav_file,
+            "-f", "lavfi", "-i", "color=c=black:s=720x480:r=30",
+            "-c:v", "libx264", "-profile:v", "main", "-preset", "medium",
+            "-pix_fmt", "yuv420p", "-shortest",
             "-c:a", "aac", "-b:a", "192k",
-            "-vn", mp4_file
+            "-f", "mp4", mp4_file
         ]
 
     subprocess.run(command, check=True)
