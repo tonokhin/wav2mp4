@@ -1,11 +1,11 @@
-If you run on Windows, you need to download from FFmpeg official site and add it to your system's PATH.
-If you run on Mac, you can install via homebrew `brew install ffmpeg`
-If you run on Linux, you can install via package manager
+### If you run on Windows, you need to download from FFmpeg official site and add it to your system's PATH.
+### If you run on Mac, you can install via homebrew `brew install ffmpeg`
+### If you run on Linux, you can install via package manager
 `sudo apt install ffmpeg  # Debian/Ubuntu`
 `sudo dnf install ffmpeg  # Fedora`
 
 
-Run the Script
+### Run the Script
 Open a terminal or command prompt and run:
 
 For audio-only conversion:
